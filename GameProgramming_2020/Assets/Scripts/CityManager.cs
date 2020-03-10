@@ -17,6 +17,8 @@ namespace GRIDCITY
         public GameObject treePrefab;
         public BuildingProfile[] profileArray;
 
+        public BuildingProfile wallProfile;
+
         private bool[,,] cityArray = new bool [15,15,15];   //increased array size to allow for larger city volume
 
         public static CityManager Instance
@@ -62,18 +64,22 @@ namespace GRIDCITY
             }
 
             //BUILD CITY WALLS - add your code below
-
-
-
-
-
-
-
-
-            //END OF CITY WALLS CODE
-
+            
+            for (int i=-7 ; i < 8 ; i += 14)
+            {
+                for (int j = -7; j < 8; j += 1)
+                {
+                    Instantiate(buildingPrefab, new Vector3(i, 0.05f, j), Quaternion.identity).GetComponent<DeluxeTowerBlock>().SetProfile(wallProfile);
+                }
+                for (int j = -6; j < 7; j += 1)
+                {
+                    Instantiate(buildingPrefab, new Vector3(j, 0.05f, i), Quaternion.identity).GetComponent<DeluxeTowerBlock>().SetProfile(wallProfile);
+                }
+            }
+            
 
             //CITY BUILDINGS:
+            
 			for (int i=-4;i<5;i+=2)
             {
                 for (int j=-4;j<5;j+=2)

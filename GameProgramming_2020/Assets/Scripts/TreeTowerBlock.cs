@@ -99,74 +99,79 @@ namespace GRIDCITY
                     int random = Random.Range(0, 10);
                     if ((y<5)||(random<6))     //the low altitude vertical tower section
                     {
-                        if (!cityManager.CheckSlot(x, y+1, z)) //building upward
+                        if (!cityManager.CheckSlot(x, y + 1, z))
                         {
                             cityManager.SetSlot(x, y + 1, z, true);
                             child = Instantiate(treePrefab, transform.position + Vector3.up * 1.01f, Quaternion.identity, this.transform);                        
                             int meshNum = myProfile.mainBlocks.Length;
                             int matNum = myProfile.mainMaterials.Length;
                             child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);
+
+
                         }
                     }
-                    else       //here we start branching off our tree tower
+                    else                  //here we start branching off our tree tower
                     {
-                        //
-                        //
                         //MODIFY THE CODE BELOW
 
-
                         random = Random.Range(0, 10);
-                        if ((random<5)&&(!cityManager.CheckSlot(x, y+1, z))) //building east (+x direction)
+                        if ((random<5)&&(!cityManager.CheckSlot(x, y, z+1)))    
                         {
-                            cityManager.SetSlot(x, y+1, z, true);
-                            child = Instantiate(treePrefab, transform.position + Vector3.up * 1.01f, Quaternion.identity, this.transform);                        
+                            cityManager.SetSlot(x, y, z+1, true);
+                            child = Instantiate(treePrefab, transform.position + Vector3.forward * 1.01f, Quaternion.identity, this.transform);                        
                             int meshNum = myProfile.mainBlocks.Length;
                             int matNum = myProfile.mainMaterials.Length;
-                            child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);                        
+                            child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum-1)]);
+
+                            
                         };
-
                         random = Random.Range(0, 10);
-                        if ((random<5)&&(!cityManager.CheckSlot(x, y+1, z))) //building north (+z direction)
+                        if ((random<5)&&(!cityManager.CheckSlot(x+1, y, z)))
                         {
-                            cityManager.SetSlot(x, y+1, z, true);
-                            child = Instantiate(treePrefab, transform.position + Vector3.up * 1.01f, Quaternion.identity, this.transform);                          
+                            cityManager.SetSlot(x+1, y, z, true);
+                            child = Instantiate(treePrefab, transform.position + Vector3.right*1.01f, Quaternion.identity, this.transform);                          
                             int meshNum = myProfile.mainBlocks.Length;
                             int matNum = myProfile.mainMaterials.Length;
-                            child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);    
+                            child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum-1)]);
+
+                            
                         };
-
                         random = Random.Range(0, 10);
-                        if ((random<5)&&(!cityManager.CheckSlot(x, y+1, z))) //building west (-x direction)
+                        if ((random<5)&&(!cityManager.CheckSlot(x, y, z-1)))
                         {
-                            cityManager.SetSlot(x, y+1, z, true);
-                            child = Instantiate(treePrefab, transform.position + Vector3.up * 1.01f, Quaternion.identity, this.transform);
+                            cityManager.SetSlot(x, y, z - 1, true);
+                            child = Instantiate(treePrefab, transform.position - Vector3.forward * 1.01f, Quaternion.identity, this.transform);
                             int meshNum = myProfile.mainBlocks.Length;
                             int matNum = myProfile.mainMaterials.Length;
-                            child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);    
+                            child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum-1)]);
+
+                            
                         };
                         
                         random = Random.Range(0, 10);
-                        if ((random<5)&& (!cityManager.CheckSlot(x, y+1, z))) //building south (-z direction)
+                        if ((random<5)&& (!cityManager.CheckSlot(x-1, y, z)))
                         {
-                            cityManager.SetSlot(x, y+1, z, true);
-                            child = Instantiate(treePrefab, transform.position + Vector3.up * 1.01f, Quaternion.identity, this.transform);                          
+                            cityManager.SetSlot(x-1, y, z, true);
+                            child = Instantiate(treePrefab, transform.position - Vector3.right * 1.01f, Quaternion.identity, this.transform);
+                            
                             int meshNum = myProfile.mainBlocks.Length;
                             int matNum = myProfile.mainMaterials.Length;
-                            child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);
+                            Debug.Log(child.GetComponents<TreeTowerBlock>().Length);
+                            child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum-1)]);
+
+                            
                         };
 
                         //END MODIFY CODE
-                        //
-                        //
-
 
                         random = Random.Range(0, 10);
-                        if ((random < 5) && (!cityManager.CheckSlot(x, y+1, z))) //building upward (+y direction)
+                        if ((random < 5) && (!cityManager.CheckSlot(x, y+1, z)))
                         {
                             cityManager.SetSlot(x, y + 1, z, true);
                             child = Instantiate(treePrefab, transform.position + Vector3.up * 1.01f, Quaternion.identity, this.transform);
                             int meshNum = myProfile.mainBlocks.Length;
                             int matNum = myProfile.mainMaterials.Length;
+                            Debug.Log(child.GetComponents<TreeTowerBlock>().Length);
                             child.GetComponent<TreeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);
                             
                         };
