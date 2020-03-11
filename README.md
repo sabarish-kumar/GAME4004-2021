@@ -11,6 +11,14 @@
 ## Contact
 * Email: robbogucki@gmail.com
 
+# Week 6
+
+## Learning Objectives:
+- Unity Physics: collider triggers, layers, raycasting - practical exercises
+
+## Lecture Slides
+- [Unity Physics] (https://drive.google.com/open?id=1WgT-6hTy3XcZq-6e-5YGwlaXVOTLX1ME)
+
 # Week 5
 
 ## Lab Test 1
