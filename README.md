@@ -1,8 +1,10 @@
 # GAME4004 Game Programming 2020
 
-## Resources
-- [Class Facebook page](https://www.facebook.com/groups/570080026914124/)
-- [Course Notes](https://drive.google.com/open?id=1_awUPElvYTU6RPufuHxxm6dQTEuw9lMF)
+## ONLINE LECTURE
+- The lectures will be delivered online via Discord for the time being. 
+  I will be screensharing and talking on the General audio channel.
+  Here is the Discord invite:
+  https://discord.gg/4tT4fd3
 
 ## Reading
 - Ferrone, Harrison (2019) Learning C# by Developing Games with Unity 2019, 4th Ed., Packt Publishing
@@ -11,7 +13,7 @@
 ## Contact
 * Email: robbogucki@gmail.com
 
-# Week 6
+# Week 6&7
 
 ## Learning Objectives:
 - Unity Physics: collider triggers, layers, raycasting - practical exercises
