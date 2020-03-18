@@ -50,7 +50,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &216722474
 MonoBehaviour:
@@ -70,6 +70,9 @@ MonoBehaviour:
   aimTarget: {fileID: 0}
   bulletPrefab: {fileID: 2055798635177461141, guid: 4f264c3761f7c7848947cc20a46f4bce,
     type: 3}
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!64 &3504655157322212933
 MeshCollider:
   m_ObjectHideFlags: 0
